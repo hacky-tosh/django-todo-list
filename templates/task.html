@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}To-Do List App{% endblock title %}
+
+{%  block body %}
+<div class="container my-4"><h1 class="text-center">All Tasks</h1></div>
+
+<div class="container my-4">
+<table id="myTable" class="table display" >
+  <thead>
+
+
+  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">Task Description</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ task.taskTime }}</td>
+      <td>{{ task.taskTitle }}</td>
+      <td>{{ task.taskDis }}</td>
+  
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+
+{% endblock body %}

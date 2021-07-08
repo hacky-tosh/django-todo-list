@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}To-Do List App{% endblock title %}
+
+{%  block body %}
+
+
+
+    {% if messages %}
+   {% for message in messages %}
+
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+  {{ message }}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+      {% endfor %}
+{% endif %}
+
+    <div class="container my-3">
+    <h1 class="text-center"> Add Your Tasks</h1>
+
+    </div>
+
+    <div class="container my-3">
+    <form method="post" action="/">
+        {% csrf_token %}
+  <div class="mb-3">
+    <label for="" class="form-label">Task Name</label>
+    <input type="text" name="task" class="form-control" id="" aria-describedby="">
+  </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Task Description</label>
+    <textarea name="dis" class="form-control" cols="30" rows="10"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+    </div>
+
+
+{% endblock body %}
