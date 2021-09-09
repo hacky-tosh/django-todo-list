@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}To-Do List App{% endblock title %}
+
+{%  block body %}
+
+
+
+{% if messages %}
+{% for message in messages %}
+
+<div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+{{ message }}
+<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+   {% endfor %}
+{% endif %}
+
+
+<div class="container my-4"><h1 class="text-center">All Tasks</h1></div>
+
+<div class="container my-4">
+<table id="myTable" class="table display" >
+  <thead>
+
+
+  <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Task Name</th>
+      <th scope="col">Task Description</th>
+      <th scope="col"></th>
+    </tr>
+
+  </thead>
+  <tbody>
+    {% for task in tasks %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ task.taskTime }}</td>
+      <td>{{ task.taskTitle }}</td>
+      <td>{{ task.taskDis }}</td>
+      <td><a href="{% url 'delete' task.id %}"><button type="button" class="btn btn-danger">Delete Task</button></a></td>
+  
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+
+</div>
+
+{% endblock body %}
